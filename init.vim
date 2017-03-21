@@ -9,7 +9,13 @@ set nocompatible " Makes it refer only to this init.vim
 "----------------------------------------------------------------------
 
 " I use https://github.com/junegunn/vim-plug for plugin management
-call plug#begin('~/.vim/plugged')
+" The next few lines check if it exists, and downloads it if it isnt.
+
+if empty(glob("~/.local/share/nvim/site/autoload/plug.vim"))
+	call system("curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+endif
+
+call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vimwiki/vimwiki'
 
@@ -21,6 +27,7 @@ call plug#end()
 
 set tabstop=4 " Sets tab to = 4 columns
 set softtabstop=4 " Sets tab to = 4 columns
+set expandtab " Autoexpands tabs to spaces
 set autoindent " Autoindents according to previous line
 
 "----------------------------------------------------------------------
