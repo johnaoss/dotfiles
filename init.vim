@@ -3,8 +3,17 @@
 " ----------------------------------------------------------------------
 
 set nocompatible " Makes it refer only to this init.vim
-syntax on " Enables syntax highlighting
-filetype plugin indent on " Enables indentation according to filetype
+
+"----------------------------------------------------------------------
+" Plugins
+"----------------------------------------------------------------------
+
+" I use https://github.com/junegunn/vim-plug for plugin management
+call plug#begin('~/.vim/plugged')
+
+Plug 'vimwiki/vimwiki'
+
+call plug#end() 
 
 " ----------------------------------------------------------------------
 " Spacing
@@ -12,7 +21,6 @@ filetype plugin indent on " Enables indentation according to filetype
 
 set tabstop=4 " Sets tab to = 4 columns
 set softtabstop=4 " Sets tab to = 4 columns
-set expandtab " Tabs expand to 4 spaces
 set autoindent " Autoindents according to previous line
 
 "----------------------------------------------------------------------
