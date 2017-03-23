@@ -1,8 +1,13 @@
 " ----------------------------------------------------------------------  
-" VIM FILE 
+" General 
 " ----------------------------------------------------------------------
-
+let $LANG='en' " Asserts no weird text encoding errors
+set langmenu=en " Asserts no weird text encoding errors
+set lazyredraw " Don't render during macros/commands 
+set history=500 " Only remember 500 lines of history
 set nocompatible " Makes it refer only to this init.vim
+set autoread	" Autoread when file is externally changed.
+colorscheme slate " Looks nice
 
 "----------------------------------------------------------------------
 " Plugins
@@ -27,8 +32,10 @@ call plug#end()
 
 set tabstop=4 " Sets tab to = 4 columns
 set softtabstop=4 " Sets tab to = 4 columns
-set expandtab " Autoexpands tabs to spaces
+set shiftwidth=4 " Sets indent to 4 width
 set autoindent " Autoindents according to previous line
+set smarttab " Forces tabs to respect tabstop and softtabstop
+set noexpandtab " Never expand tabs.
 
 "----------------------------------------------------------------------
 " UI Changes
