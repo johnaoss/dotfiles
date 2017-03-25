@@ -3,10 +3,10 @@
 " ----------------------------------------------------------------------
 let $LANG='en' " Asserts no weird text encoding errors
 set langmenu=en " Asserts no weird text encoding errors
-set lazyredraw " Don't render during macros/commands 
+set lazyredraw " Refuses to redraw during commands/macros
 set history=500 " Only remember 500 lines of history
+set autoread	" Autoread when file is externally changed
 set nocompatible " Makes it refer only to this init.vim
-set autoread	" Autoread when file is externally changed.
 colorscheme slate " Looks nice
 
 "----------------------------------------------------------------------
@@ -14,15 +14,16 @@ colorscheme slate " Looks nice
 "----------------------------------------------------------------------
 
 " I use https://github.com/junegunn/vim-plug for plugin management
-" The next few lines check if it exists, and downloads it if it isnt.
+" The next few lines check if it exists, and downloads it if it isnt
 
 if empty(glob("~/.local/share/nvim/site/autoload/plug.vim"))
 	call system("curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
 endif
 
+" Installing Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki' " Like an easy org-mode for Vim
 
 call plug#end() 
 
@@ -46,3 +47,14 @@ set showmode " Always displays current mode
 set showcmd " Always displays previous command
 set cursorline " Sets line under cursor position
 set foldmethod=indent " Folding will occur at indentation level (good for Python)
+
+"----------------------------------------------------------------------
+" Keybindings
+"----------------------------------------------------------------------
+
+" Tab Switching
+nnoremap <left> gT
+nnoremap <right> gt
+
+" Autocomplete 
+inoremap <C-Space> <C-n>
