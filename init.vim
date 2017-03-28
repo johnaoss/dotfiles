@@ -1,5 +1,5 @@
-" ----------------------------------------------------------------------  
-" General 
+" ----------------------------------------------------------------------
+" General
 " ----------------------------------------------------------------------
 let $LANG='en' " Asserts no weird text encoding errors
 set langmenu=en " Asserts no weird text encoding errors
@@ -24,8 +24,9 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vimwiki/vimwiki' " Like an easy org-mode for Vim
+Plug 'vim-airline/vim-airline' " Adds status bar to bottom of screen
 
-call plug#end() 
+call plug#end()
 
 " ----------------------------------------------------------------------
 " Spacing
@@ -56,5 +57,5 @@ set foldmethod=indent " Folding will occur at indentation level (good for Python
 nnoremap <left> gT
 nnoremap <right> gt
 
-" Autocomplete 
+" Autocomplete
 inoremap <C-Space> <C-n>
