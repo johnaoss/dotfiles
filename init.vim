@@ -30,6 +30,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vimwiki/vimwiki' " Like an easy org-mode for Vim
 Plug 'vim-airline/vim-airline' " Adds status bar to bottom of screen
+Plug 'scrooloose/nerdtree' " Filesystem controls
 
 call plug#end()
 
@@ -52,7 +53,6 @@ set number " Adds line number
 set showmode " Always displays current mode
 set showcmd " Always displays previous command
 set cursorline " Sets line under cursor position
-set foldmethod=indent " Folding will occur at indentation level (good for Python)
 
 "----------------------------------------------------------------------
 " Keybindings
@@ -62,8 +62,19 @@ set foldmethod=indent " Folding will occur at indentation level (good for Python
 nnoremap <left> gT
 nnoremap <right> gt
 
-"split navigations
+" Split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+"----------------------------------------------------------------------
+" Other Commands
+"----------------------------------------------------------------------
+
+" Opens NERDTree if opened with just 'nvim'
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | wincmd p | endif
+" Closes NeoVim if NERDTree is the only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
