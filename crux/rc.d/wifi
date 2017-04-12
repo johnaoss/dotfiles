@@ -1,9 +1,10 @@
 #!/bin/sh
 #
-#/etc/rc.d/wifi: init script for wifi connections
+#/etc/rc.d/wifi: init script for WPA wifi connections
 #
 # Requires network 0 to be already set up in wpa_cli
 #
+
 INTERFACE=wlp101s0
 
 case $1 in
@@ -13,11 +14,11 @@ start)
 	/sbin/dhcpcd -t 10 $HOSTNAME ${INTERFACE}
 	;;
 stop)
-	echo "Stopped"
+	/usr/sbin/wpa_cli disable_network 0
 	;;
 restart)
-	0$ stop
-	0$ start
+	$0 stop
+	$0 start
 	;;
 *)
 	echo "usage: $0 [start|stop|restart]"
