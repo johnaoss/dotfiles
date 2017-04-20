@@ -4,11 +4,11 @@
 let $LANG='en' " Asserts no weird text encoding errors
 set langmenu=en " Asserts no weird text encoding errors
 set encoding=utf-8 " Asserts no weird text encoding errors
-set lazyredraw " Refuses to redraw during commands/macros
+set noswapfile " Refuses to create swap file
+set visualbell " Don't beep please
 set history=500 " Only remember 500 lines of history
 set autoread	" Autoread when file is externally changed
 set nocompatible " Makes it refer only to this init.vim
-
 colorscheme slate " Looks nice
 
 let g:python2_host_prog = '/usr/local/bin/python'
@@ -28,9 +28,9 @@ endif
 " Installing Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'vimwiki/vimwiki' " Like an easy org-mode for Vim
-Plug 'vim-airline/vim-airline' " Adds status bar to bottom of screen
-Plug 'scrooloose/nerdtree' " Filesystem controls
+	Plug 'vimwiki/vimwiki' " Like an easy org-mode for Vim
+	Plug 'vim-airline/vim-airline' " Adds status bar to bottom of screen
+	Plug 'scrooloose/nerdtree' " Filesystem controls
 
 call plug#end()
 
@@ -44,29 +44,39 @@ set shiftwidth=4 " Sets indent to 4 width
 set autoindent " Autoindents according to previous line
 set smarttab " Forces tabs to respect tabstop and softtabstop
 set noexpandtab " Never expand tabs.
+set backspace=indent,eol,start
 
 "----------------------------------------------------------------------
 " UI Changes
 "----------------------------------------------------------------------
 
+set lazyredraw " Only renders on completion
 set number " Adds line number
 set showmode " Always displays current mode
 set showcmd " Always displays previous command
 set cursorline " Sets line under cursor position
+set ruler " Shows the ruler
 
 "----------------------------------------------------------------------
 " Keybindings
 "----------------------------------------------------------------------
 
 " Tab Switching
-nnoremap <left> gT
-nnoremap <right> gt
+nnoremap <TAB> gT
+nnoremap <S-TAB> gt
 
 " Split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Remove arrow keybindings
+noremap <left> <Nop>
+noremap <right> <Nop>
+noremap <up> <Nop>
+noremap <down> <Nop>
+
 
 "----------------------------------------------------------------------
 " Other Commands
