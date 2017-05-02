@@ -10,10 +10,14 @@ set visualbell " Don't beep please
 set history=500 " Only remember 500 lines of history
 set autoread	" Autoread when file is externally changed
 set nocompatible " Makes it refer only to this init.vim
-colorscheme slate " Looks nice
 
-let g:python2_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+" If the colorscheme doesn't exist, download it.
+if empty(glob("~/.config/nvim/colors/monokai.vim"))
+	silent !curl -fLo ~/.config/nvim/colors/monokai.vim --create-dirs
+				\ https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim
+endif
+
+colorscheme monokai " Looks nice with iTerm Monokai colorscheme
 
 "----------------------------------------------------------------------
 " Plugins
@@ -106,4 +110,12 @@ let NERDTreeShowHidden=1
 " Places vimwiki folder in a specific location
 let g:vimwiki_list = [{'path': '~/Documents/Vimwiki',
 					\ 'path_html': '~/Documents/Vimwiki/HTML'}]
-
+"----------------------------------------------------------------------
+" Vim-Go
+"----------------------------------------------------------------------
+" Enables syntax highlighting
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
