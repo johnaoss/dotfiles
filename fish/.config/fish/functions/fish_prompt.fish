@@ -1,1 +1,4 @@
-/Users/johnandrewoss/.local/share/omf/themes/bobthefish/fish_prompt.fish
+function fish_prompt
+	set_color normal
+	echo (pwd | string replace $HOME '~')' '
+end

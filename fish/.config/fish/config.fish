@@ -2,8 +2,6 @@
 
 set fish_greeting
 set -x EDITOR nvim
-set -U theme_nerd_fonts yes
-set -g theme_color_scheme light
 
 # Aliases
 alias cp='cp -iv'                       # Preferred 'cp' implementation
@@ -20,12 +18,6 @@ alias vi='nvim'                         # Preferred text editor (breaking habits
 alias vim='nvim'                        # Preferred text editor (breaking habits)
 
 alias emacs='emacs -nw'					# Prevents the GUI of Emacs opening
-
-# Functions
-function cd
-  builtin cd $argv[1]
-  ls -l
-end
 
 # Development Stuff
 export GOPATH=$HOME/Code/Go
