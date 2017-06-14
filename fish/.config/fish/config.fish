@@ -3,8 +3,12 @@
 set fish_greeting
 set -x EDITOR nvim
 
+# Better terminal colours
+set -gx LSCOLORS gxfxcxdxbxegedabagacad
+
+
 # Aliases
-alias cp='cp -iv'                       # Preferred 'cp' implementation
+alias cp='rsync -avh'					# Preferred 'cp' implementation
 alias mv='mv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                 # Preferred 'mkdir' implementation
 alias ll='ls -FGlAhp'                   # Preferred 'ls' implementation
@@ -17,8 +21,11 @@ alias nano='nvim'                       # Preferred text editor (breaking habits
 alias vi='nvim'                         # Preferred text editor (breaking habits)
 alias vim='nvim'                        # Preferred text editor (breaking habits)
 
+alias git='hub'							# Github's git wrapper
 alias emacs='emacs -nw'					# Prevents the GUI of Emacs opening
 
 # Development Stuff
 export GOPATH=$HOME/Code/Go
+export GOBIN=$HOME/Code/Go/bin
+export GODEV=$HOME/Code/Go/src/github.com/johnaoss
 set PATH $PATH $HOME/Code/Go/bin
