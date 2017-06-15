@@ -13,8 +13,8 @@ alias vi='nvim'                         # Preferred text editor (breaking habits
 alias vim='nvim'                        # Preferred text editor (breaking habits)
 
 # Development Stuff
-export GOPATH=$($HOME/Code/Go)
+export GOPATH=$HOME/Code/Go
 
 # Use installed Go programs as shell scripts
-export PATH=$PATH:$(GOPATH)/bin
+export PATH=$PATH:$GOPATH/bin
 
