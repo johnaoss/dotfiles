@@ -11,6 +11,10 @@ set history=500 " Only remember 500 lines of history
 set autoread	" Autoread when file is externally changed
 set nocompatible " Makes it refer only to this init.vim
 
+" Only case-sensitive when search term contains capitalization
+set ignorecase
+set smartcase
+
 " If the colorscheme doesn't exist, download it.
 if empty(glob("~/.config/nvim/colors/monokai.vim"))
 	silent !curl -fLo ~/.config/nvim/colors/monokai.vim --create-dirs
