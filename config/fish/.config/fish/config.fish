@@ -35,6 +35,7 @@ if type -q 'hub'
 end
 
 # XDG Enforcement.
+
 # System
 set -x XDG_DATA_DIRS /usr/share /usr/local/share
 set -x XDG_CONFIG_DIRS /etc/xdg
@@ -50,6 +51,10 @@ set -x XDG_MUSIC_DIR $HOME/Music
 set -x XDG_PICTURES_DIR $HOME/Pictures
 set -x XDG_VIDEOS_DIR $HOME/Videos
 
+# Installed Programs
+set -x NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc # NPM
+alias tmux "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 # Go Development (Laptop)
 export GOPATH=$HOME/Code/Go
 export GOBIN=$HOME/Code/Go/bin
