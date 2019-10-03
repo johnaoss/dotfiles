@@ -10,6 +10,7 @@ Pending a rewrite to using XDG-compliant features.
 
 * GNU Stow
 * Oh My Fish (If using Fish shell)
+* Dotgo (at some point!)
 
 ## Installation
 
