@@ -51,12 +51,6 @@ set -x XDG_MUSIC_DIR $HOME/Music
 set -x XDG_PICTURES_DIR $HOME/Pictures
 set -x XDG_VIDEOS_DIR $HOME/Videos
 
-# Installed Programs
+# For NPM
 set -x NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc # NPM
-alias tmux "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-# Go Development (Laptop)
-export GOPATH=$HOME/Code/Go
-export GOBIN=$HOME/Code/Go/bin
-export GODEV=$HOME/Code/Go/src/github.com/johnaoss
-set PATH $PATH $HOME/Code/Go/bin
+
